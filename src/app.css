@@ -1,0 +1,111 @@
+
+*{
+    padding:0px;
+    margin:0px;
+}
+
+.btn,.btn:focus {
+      box-shadow: none !important ;
+
+} 
+
+.App{
+    margin:auto;
+    margin-top:100px;
+    height:450px;
+    width:350px;
+    border:2px solid red;
+    /* background-color: gray; */
+}
+.App >.first {
+    /* height:85px;  */
+    padding:20px 0px 20px 10px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom:1px solid gray
+}
+.App >.second {
+    height:306px;
+    border:1px solid black;
+   overflow: hidden;
+}
+footer{
+    /* height:10px; */
+    display: flex;
+    flex-wrap: wrap;
+    padding:10px 40px 10px 40px;
+    justify-content: space-between;
+    border-top:3px solid gray;
+}
+input{
+    width: 200px !important;
+    display: inline-block !important;
+}
+.first .btn {
+    display: inline-block;
+    background-color: orange;
+    color:white
+    }
+    .noteBox{
+        border:1px solid orange;
+        height:40px;
+        width:60%;
+        display: inline-block;
+         margin:10px 20px 0px 10px;
+    }
+    .note-controller{
+        
+        display: inline-block;
+    }
+    .note-controller .btn { 
+    background-color: purple;
+    color:white;
+    margin-right:10px;
+    margin-bottom: 0px;
+
+    }
+  
+footer button{
+
+
+padding:0px 10px 0px  10px ;
+border-radius:10px ;
+  
+  }
+
+  .second .eachNote {
+   animation : comeTome 1s ease-in-out;
+   animation-fill-mode: forwards;
+   opacity: 0;
+   }
+
+.second .second {
+   animation-delay: 0.2s;
+}
+.second .third {
+   animation-delay: 0.3s;
+
+}
+.second .fourth {
+   animation-delay: 0.4s;
+
+}
+
+@keyframes comeTome {
+
+
+0%{
+    transform: translateX(300px);
+}
+
+50%{
+
+}
+100%{
+    transform: translateX(0px);
+  opacity: 1;
+}
+
+}
+

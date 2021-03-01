@@ -1,6 +1,7 @@
  
 import React from 'react'
 import EachNote from './EachNote'
+import Button from './Button'
 
 class TO_DO extends React.Component{
 
@@ -14,6 +15,8 @@ constructor(props)
  this.Update = this.Update.bind(this)
  this.Next =this.Next.bind(this)
  this.Prev = this.Prev.bind(this)
+ this.Edit = this.Edit.bind(this)
+ this.onblur = this.onblur.bind(this)
 }
 
 
@@ -50,17 +53,19 @@ add(){
   // Prev Method
 
          Prev(){
-
-   if(this.state.start >5  )
+console.log(this.state);
+   if(this.state.start >5)
          {
-  
-          console.log("prev working");
-          // this.diff = this.state.end - this.state.start 
+        
+     console.log("prev working");
+        
+        // this.diff = this.state.end - this.state.start 
+         this.setState((prevstate)=>(   
 
-           this.setState((prevstate)=>(            
              {...prevstate,start:prevstate.start - 5 }
              
              ))
+             
             }
          } 
           
@@ -80,7 +85,7 @@ add(){
     { 
     if(index >= this.state.start -1 && index <= this.state.start + 3)
     {     
-     return  <EachNote key={index} val={val} id={index} Delete={this.Delete}/>
+     return  <EachNote key={index} val={val} id={index} Delete={this.Delete} Edit={this.Edit}/>
       }
       
   })
@@ -94,7 +99,7 @@ add(){
  Delete(e)
  { 
     
-  if(parseInt(e.target.id)+ 1 === this.state.start && this.state.start != 1)
+  if(parseInt(e.target.id)+ 1 === this.state.start && this.state.start != 1 && this.state.end === this.state.start )
       { 
         this.setState((prevstate)=>(            
           {...prevstate,start:prevstate.start - 5}
@@ -109,7 +114,28 @@ add(){
   })
 this.setState((prevstate)=> ({ ...prevstate, Note:this.RES,end:prevstate.end-1}))
   }
+// Lets Edit our data on real time
 
+Edit(e){
+ 
+  console.log("editing click");
+  this.elem = document.getElementById('parent'+e.target.id)
+  this.elem.childNodes[0].style.display= "none"
+  this.inputelem = document.createElement('input')
+  this.inputelem.value = this.elem.childNodes[0].innerText 
+  this.inputelem.setAttribute('id','edit')
+  this.inputelem.onblur = this.onblur
+  this.elem.childNodes[0].after(this.inputelem)
+  this.inputelem.focus()
+  console.log(this.elem.childNodes[0].innerText);
+}
+
+onblur(e){
+this.elem.childNodes[0].style= "block"
+this.elem.childNodes[0].innerText = this.inputelem.value
+e.target.remove()
+
+}
 
 
   render(){
@@ -125,8 +151,8 @@ this.setState((prevstate)=> ({ ...prevstate, Note:this.RES,end:prevstate.end-1})
       {this.Update()}    
         </section>
 <footer>
-<button className="btn btn-primary prev " onClick={this.Prev}> Prev </button>
-<button className="btn btn-primary next" onClick={this.Next}>Next </button>
+<Button Prev={this.Prev} Next={this.Next} length={this.state.end}/>
+
 </footer>    
 
   </div>

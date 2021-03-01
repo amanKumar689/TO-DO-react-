@@ -53,16 +53,27 @@ input{
         width:60%;
         display: inline-block;
          margin:10px 20px 0px 10px;
+         overflow: hidden;
     }
+    
+  .second .eachNote {
+   animation : comeTome 1s ease-in-out;
+   animation-fill-mode: forwards;
+   opacity: 0;
+   display:flex;
+   flex-wrap:wrap;
+   }
+
     .note-controller{
         
-        display: inline-block;
+       
+        
     }
     .note-controller .btn { 
     background-color: purple;
     color:white;
     margin-right:10px;
-    margin-bottom: 0px;
+   margin-top:10px
 
     }
   
@@ -73,12 +84,6 @@ padding:0px 10px 0px  10px ;
 border-radius:10px ;
   
   }
-
-  .second .eachNote {
-   animation : comeTome 1s ease-in-out;
-   animation-fill-mode: forwards;
-   opacity: 0;
-   }
 
 .second .second {
    animation-delay: 0.2s;
@@ -109,3 +114,10 @@ border-radius:10px ;
 
 }
 
+#edit{
+border:1px solid orange;
+        height:40px;
+        width:60%;
+        display: inline-block;
+         margin:10px 20px 0px 10px;
+}

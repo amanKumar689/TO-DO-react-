@@ -3,6 +3,7 @@ import React from 'react'
 import EachNote from './EachNote'
 import Button from './Button'
 
+
 class TO_DO extends React.Component{
 
 constructor(props)
@@ -17,11 +18,12 @@ constructor(props)
  this.Prev = this.Prev.bind(this)
  this.Edit = this.Edit.bind(this)
  this.onblur = this.onblur.bind(this)
- 
-}
+ }
 
 
-//  ADD METHOD 
+///////.................   ADD METHOD 
+
+// here when we click add then a notes will add or render to notebox(simply in a section tag)
 
 add(){
   
@@ -37,11 +39,13 @@ add(){
       }
      
   
- // Next Method     
+ //////...................... Next Method
+ 
+
+  // it will render next (max - 5) element from list of Note(stored in this.state.Note)  
 
       Next(){
- 
-         if(this.state.Note.length >5 && this.state.end >= this.state.start + 5 )
+          if(this.state.Note.length >5 && this.state.end >= this.state.start + 5 )
          {
            this.setState((prevstate)=>(            
              {...prevstate,start:prevstate.start + 5 }
@@ -51,27 +55,22 @@ add(){
           }
         
 
-  // Prev Method
+  /////////...........................Prev Method
 
+  // it will render previous 5 element  (next and prev will only work when notes is greater than 5 otherwise it will be disabled)
          Prev(){
-console.log(this.state);
    if(this.state.start >5)
          {
-        
-     console.log("prev working");
-        
-        // this.diff = this.state.end - this.state.start 
-         this.setState((prevstate)=>(   
-
+           this.setState((prevstate)=>(   
              {...prevstate,start:prevstate.start - 5 }
-             
-             ))
-             
-            }
+                  ))
+             }
          } 
           
  
-  // Update Method  
+  ///////////................... Update Method  
+
+// On every action we perform on our app cause state change so  it will run on every time we make changes in state  
 
           Update(){
             
@@ -95,7 +94,11 @@ console.log(this.state);
 }
 
 
-// Delte Method
+///////////......................... Delete Method
+
+// it will delete specific note and onclick delete icon it will get that notebox id and it  will match with our Note index  if id(that would going to be delete)  and note index match then it will be removed from our Note state 
+// and we will give new collection of note to state  
+
 
  Delete(e)
  { 
@@ -106,21 +109,22 @@ console.log(this.state);
           {...prevstate,start:prevstate.start - 5}
           
           ))
-       }
-
-      
-         
-  this.RES= this.state.Note.filter(function(item,index) {
+       } 
+          this.RES= this.state.Note.filter(function(item,index) {
   return index !==  parseInt(e.target.id)
 
 })
-console.log("RESU",this.RES);
 this.setState((prevstate)=> ({ ...prevstate, Note:this.RES,end:prevstate.end-1}))
   }
 
 
 
 // Lets Edit our data on real time
+
+// I think this is where i having fun in coding  
+// Onclick edit icon it will going to be run
+
+//     my text container i.e,div.noteBox will going to display: none and it will be replaced with input tag with old text and here we can write new value so after that its value will transfer to text container back and ofcourse we have to change in state too so it can reflect after rendering otherwise on render it will be as previous value    
 
 Edit(e){
  
@@ -135,13 +139,14 @@ Edit(e){
   this.inputelem.focus() 
   }
 
+  // it is handled by onblur event
+
 onblur(e){
 this.elem.childNodes[0].style= "block"
  this.RES_2 =this.state.Note.map(function(item,index) {
    
   return index !==  parseInt(e.target.id) ? item : e.target.value
 })
-console.log(this.RES_2);
   e.target.remove()
   this.setState((prevstate)=> ({ ...prevstate, Note:this.RES_2}))
 }

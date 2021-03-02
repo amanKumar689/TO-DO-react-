@@ -76,7 +76,7 @@ add(){
             
   if(this.state.Note == null ||this.state.Note.length == 0 )
   {
-    this.result = <p> Not Found any Notes....</p> 
+    this.result = <p className="mx-3 my-3"> Not Found any Notes....</p> 
     return this.result
   }
   else

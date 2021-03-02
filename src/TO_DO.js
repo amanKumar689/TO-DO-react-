@@ -17,6 +17,7 @@ constructor(props)
  this.Prev = this.Prev.bind(this)
  this.Edit = this.Edit.bind(this)
  this.onblur = this.onblur.bind(this)
+ 
 }
 
 
@@ -111,30 +112,38 @@ console.log(this.state);
          
   this.RES= this.state.Note.filter(function(item,index) {
   return index !==  parseInt(e.target.id)
-  })
+
+})
+console.log("RESU",this.RES);
 this.setState((prevstate)=> ({ ...prevstate, Note:this.RES,end:prevstate.end-1}))
   }
+
+
+
 // Lets Edit our data on real time
 
 Edit(e){
  
-  console.log("editing click");
   this.elem = document.getElementById('parent'+e.target.id)
   this.elem.childNodes[0].style.display= "none"
   this.inputelem = document.createElement('input')
   this.inputelem.value = this.elem.childNodes[0].innerText 
-  this.inputelem.setAttribute('id','edit')
+  this.inputelem.setAttribute('id', e.target.id.toString())
+  this.inputelem.setAttribute('class','edit' )
   this.inputelem.onblur = this.onblur
   this.elem.childNodes[0].after(this.inputelem)
-  this.inputelem.focus()
-  console.log(this.elem.childNodes[0].innerText);
-}
+  this.inputelem.focus() 
+  }
 
 onblur(e){
 this.elem.childNodes[0].style= "block"
-this.elem.childNodes[0].innerText = this.inputelem.value
-e.target.remove()
-
+ this.RES_2 =this.state.Note.map(function(item,index) {
+   
+  return index !==  parseInt(e.target.id) ? item : e.target.value
+})
+console.log(this.RES_2);
+  e.target.remove()
+  this.setState((prevstate)=> ({ ...prevstate, Note:this.RES_2}))
 }
 
 
@@ -143,7 +152,7 @@ e.target.remove()
     <>
     <div className="App">
     <section className="first">  
-      <input id="note" type="text" className="form-control"  placeholder=" Note here"/>
+      <input id="note" type="text" className="form-control"  placeholder=" Note here" required/>
       <button className="btn" onClick={this.add} >ADD </button>
       <hr/>
        </section>

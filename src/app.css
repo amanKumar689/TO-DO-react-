@@ -14,8 +14,8 @@
     margin-top:100px;
     height:450px;
     width:350px;
-    border:2px solid red;
-    /* background-color: gray; */
+    border:2px solid gray;
+      box-shadow:2px 3px 3px 0px darkgrey
 }
 .App >.first {
     /* height:85px;  */
@@ -27,7 +27,6 @@
 }
 .App >.second {
     height:306px;
-    border:1px solid black;
    overflow: hidden;
 }
 footer{
@@ -48,12 +47,20 @@ input{
     color:white
     }
     .noteBox{
-        border:1px solid orange;
         height:40px;
         width:60%;
         display: inline-block;
          margin:10px 20px 0px 10px;
          overflow: hidden;
+         padding-top:6px;
+         padding-left:5px;
+         line-height: 1.7;
+         background-color:#03fc73;
+         color:white;
+         border-radius:10px ;
+         box-shadow:2px 3px 3px 0px darkgrey;
+         font-family:Lucida Fax ;
+        text-transform: capitalize;
     }
     
   .second .eachNote {
@@ -78,8 +85,8 @@ input{
     }
   
 footer button{
-
-
+ color:white !important;
+background-color: #fc0380 !important;
 padding:0px 10px 0px  10px ;
 border-radius:10px ;
   
@@ -114,7 +121,7 @@ border-radius:10px ;
 
 }
 
-#edit{
+.edit{
 border:1px solid orange;
         height:40px;
         width:60%;

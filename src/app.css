@@ -1,130 +1,202 @@
-
-*{
-    padding:0px;
-    margin:0px;
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.container {
+  display: flex;
+  flex-wrap: Wrap;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
+.btn,
+.btn:focus {
+  box-shadow: none !important ;
 }
 
-.btn,.btn:focus {
-      box-shadow: none !important ;
-
-} 
-
-.App{
-    margin:auto;
-    margin-top:100px;
-    height:450px;
-    width:350px;
-    border:2px solid gray;
-      box-shadow:2px 3px 3px 0px darkgrey
+.App {
+  flex: 1;
+  height: 490px;
+  border: 2px solid gray;
+  box-shadow: 2px 3px 3px 0px darkgrey;
+  margin-right: 50px;
 }
-.App >.first {
-    /* height:85px;  */
-    padding:20px 0px 20px 10px;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-bottom:1px solid gray
+.App > .first {
+  /* height:85px;  */
+  padding: 20px 0px 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
 }
-.App >.second {
-    height:306px;
-   overflow: hidden;
+.App > .second {
+  height: 306px;
+  overflow: hidden;
 }
-footer{
-    /* height:10px; */
-    display: flex;
-    flex-wrap: wrap;
-    padding:10px 40px 10px 40px;
-    justify-content: space-between;
-    border-top:3px solid gray;
+footer {
+  /* height:10px; */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 40px 10px 40px;
+  justify-content: space-between;
+  border-top: 3px solid gray;
 }
-input{
-    width: 200px !important;
-    display: inline-block !important;
+input {
+  /* width: 200px !important; */
+  flex: 0.7;
+  display: inline-block !important;
 }
 .first .btn {
-    display: inline-block;
-    background-color: orange;
-    color:white
-    }
-    .noteBox{
-        height:40px;
-        width:60%;
-        display: inline-block;
-         margin:10px 20px 0px 10px;
-         overflow: hidden;
-         padding-top:6px;
-         padding-left:5px;
-         line-height: 1.7;
-         background-color:#03fc73;
-         color:white;
-         border-radius:10px ;
-         box-shadow:2px 3px 3px 0px darkgrey;
-         font-family:Lucida Fax ;
-        text-transform: capitalize;
-    }
-    
-  .second .eachNote {
-   animation : comeTome 1s ease-in-out;
-   animation-fill-mode: forwards;
-   opacity: 0;
-   display:flex;
-   flex-wrap:wrap;
-   }
+  display: inline-block;
+  background-color: orange;
+  color: white;
+  flex: 0.2;
+}
+.noteBox {
+  height: 40px;
+  width: 60%;
+  display: inline-block;
+  margin: 10px 20px 0px 20px;
+  overflow: hidden;
+  padding-top: 6px;
+  padding-left: 5px;
+  line-height: 1.7;
+  background-color: #03fc73;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 2px 3px 3px 0px darkgrey;
+  font-family: Lucida Fax;
+  cursor: pointer;
+  flex: 1;
+  user-select: none;
+}
 
-    .note-controller{
-        
-       
-        
-    }
-    .note-controller .btn { 
-    background-color: purple;
-    color:white;
-    margin-right:10px;
-   margin-top:10px
+.second .eachNote {
+  animation: comeTome 1s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
 
-    }
-  
-footer button{
- color:white !important;
-background-color: #fc0380 !important;
-padding:0px 10px 0px  10px ;
-border-radius:10px ;
-  
-  }
+  padding: 3px 0px 15px 45px;
+}
+
+.note-controller .btn {
+  background-color: purple;
+  color: white;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+footer button {
+  color: white !important;
+  background-color: #fc0380 !important;
+  padding: 0px 10px 0px 10px;
+  border-radius: 10px;
+}
 
 .second .second {
-   animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 .second .third {
-   animation-delay: 0.3s;
-
+  animation-delay: 0.3s;
 }
 .second .fourth {
-   animation-delay: 0.4s;
-
+  animation-delay: 0.4s;
 }
 
 @keyframes comeTome {
-
-
-0%{
+  0% {
     transform: translateX(300px);
-}
+  }
 
-50%{
-
-}
-100%{
+  50% {
+  }
+  100% {
     transform: translateX(0px);
-  opacity: 1;
+    opacity: 1;
+  }
 }
 
+.edit {
+  border: 1px solid orange;
+  height: 40px;
+  width: 60%;
+  display: inline-block;
+  margin: 10px 20px 0px 10px;
+}
+.statushandler {
+  /* position: absolute; */
+}
+.status_selector {
+  /* border:1px solid red; */
+  padding: 4px;
+  align-self: center;
+  cursor: pointer;
+}
+.open {
+  width: 210px !important;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 1px 1px 2px 1px lightgrey;
+}
+.statushandler {
+  position: absolute;
+  width: 55px;
+  height: 54px;
+  left: -12px;
+  top: 9px;
+  font-size: 17px;
+  padding: 0px 9px 8px 13px;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+  justify-content: space-evenly;
+}
+.statushandler i:first-of-type {
+  font-size: 20px;
+}
+.statushandler i {
+  padding: 6px;
+  margin-bottom: 10px;
+}
+.statushandler .wrapper:not(:first-of-type) {
+  cursor: pointer;
+  margin-left: 13px;
+}
+.wrapper {
+  margin-top: 8px;
+  margin-left: 7px;
+  width: 33px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 2px;
+  display: inline-block;
+  margin-bottom: 3px;
+  background-color: #d442f5;
+  color: white;
+}
+.wrapper:hover {
+}
+.wrapper:first-of-type {
+  margin-top: 9px;
 }
 
-.edit{
-border:1px solid orange;
-        height:40px;
-        width:60%;
-        display: inline-block;
-         margin:10px 20px 0px 10px;
+/*  Description Hanger */
+
+.note_Desc_Hanger {
+  flex: 0.4;
+  box-shadow: 0px 0px 10px 2px lightgrey;
+  /* width:100px */
+}
+.note_Desc_Hanger h4 {
+  text-align: center;
+  padding: 20px 5px 5px 0px;
+  font-family: Papyrus;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+.note_Desc_Hanger p {
+  padding: 10px;
+  font-family: Lucida Bright;
 }

@@ -52,7 +52,6 @@ class TO_DO extends React.Component {
     let elem_2 = event.target;
 
     if (elem_1.className != elem_2.className) {
-      console.log("running 1st");
       const elem_1_name = elem_1.className.split(" ");
       const elem_2_name = elem_2.className.split(" ");
       let temp;
@@ -74,7 +73,6 @@ class TO_DO extends React.Component {
             };
       });
 
-      console.log("updated data ::", UpdatedData, id);
       this.setState(
         // Storage updated and open is false
         (prevState) => {
@@ -87,7 +85,6 @@ class TO_DO extends React.Component {
         }
       );
     } else if (id != null) {
-      console.log("running 2nd");
       this.state.open.id != id
         ? this.setState(
             (prevstate) => {
@@ -240,7 +237,6 @@ class TO_DO extends React.Component {
     }
 
     const Temp = this.state.storage.filter((val, index) => index != id);
-    console.log("after delted", Temp, id);
 
     this.setState((prevState) => {
       return {
@@ -318,7 +314,6 @@ class TO_DO extends React.Component {
   }
 
   render() {
-    console.log("Debugging Time::", this.state.storage);
     localStorage.setItem("myStore", JSON.stringify(this.state.storage));
     return (
       <>

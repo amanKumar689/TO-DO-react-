@@ -5,9 +5,8 @@
 .container {
   display: flex;
   flex-wrap: Wrap;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
+  margin-top:60px;
+  padding-bottom:30px
 }
 .btn,
 .btn:focus {
@@ -15,14 +14,14 @@
 }
 
 .App {
-  flex: 1;
-  height: 490px;
+  width:100%;
+  max-width:600px;
+  min-height: 440px;
   border: 2px solid gray;
   box-shadow: 2px 3px 3px 0px darkgrey;
   margin-right: 50px;
 }
 .App > .first {
-  /* height:85px;  */
   padding: 20px 0px 20px 10px;
   display: flex;
   flex-wrap: wrap;
@@ -182,12 +181,13 @@ footer button {
   margin-top: 9px;
 }
 
-/*  Description Hanger */
-
 .note_Desc_Hanger {
-  flex: 0.4;
   box-shadow: 0px 0px 10px 2px lightgrey;
-  /* width:100px */
+  flex:1;
+  margin-top:50px;
+  max-width:600px;
+  line-height:2.0;
+  letter-spacing:1.5px;
 }
 .note_Desc_Hanger h4 {
   text-align: center;
@@ -199,4 +199,10 @@ footer button {
 .note_Desc_Hanger p {
   padding: 10px;
   font-family: Lucida Bright;
+}
+
+@media screen and (max-width:991px) {
+  .App {
+    margin-right:0px;
+  }
 }
